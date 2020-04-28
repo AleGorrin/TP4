@@ -1,0 +1,18 @@
+---
+:source:
+  :path: test
+  :file: test_porton.c
+:successes:
+- :test: test_PruebaDeMaquinaDeEstado
+  :line: 22
+  :message: ''
+  :unity_test_time: 0
+:failures: []
+:ignores: []
+:counts:
+  :total: 1
+  :passed: 1
+  :failed: 0
+  :ignored: 0
+:stdout: []
+:time: 0.001466430003347341

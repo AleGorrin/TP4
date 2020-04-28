@@ -12,7 +12,6 @@
 #define _SEMAFORO_H_
 
 /*=====[Inclusiones de dependencias de funciones publicas]===================*/
-#include "sapi.h"
 #include "leds.h"
 #include "teclas.h"
 
