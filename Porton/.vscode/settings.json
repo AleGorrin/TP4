@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "mock_teclas.h": "c",
+        "leds.h": "c"
+    }
+}

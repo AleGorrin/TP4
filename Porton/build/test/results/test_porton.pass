@@ -3,16 +3,24 @@
   :path: test
   :file: test_porton.c
 :successes:
-- :test: test_PruebaDeMaquinaDeEstado
+- :test: test_PruebaDeInicializacion
   :line: 22
+  :message: ''
+  :unity_test_time: 0
+- :test: test_PruebaDeMaquinaDeEstadoEnEstadoInicial
+  :line: 28
+  :message: ''
+  :unity_test_time: 0
+- :test: test_PruebaDeMaquinaDeEstadoEnEstadoCerrado
+  :line: 38
   :message: ''
   :unity_test_time: 0
 :failures: []
 :ignores: []
 :counts:
-  :total: 1
-  :passed: 1
+  :total: 3
+  :passed: 3
   :failed: 0
   :ignored: 0
 :stdout: []
-:time: 0.001466430003347341
+:time: 0.0015926209998724516

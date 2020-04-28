@@ -9,3 +9,7 @@ src/leds.c:
 - TEST
 src/teclas.c:
 - TEST
+build/test/mocks/mock_teclas.c:
+- TEST
+build/test/mocks/mock_leds.c:
+- TEST

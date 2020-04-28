@@ -28,7 +28,6 @@ typedef enum{
 bool_t gpioRead( gpioMap_t pin );
 bool_t gpioWrite( gpioMap_t pin, bool_t value );
 
-
 void delayConfig( delay_t * delay, tick_t duration );
 bool_t delayRead( delay_t * delay );
 void delayWrite( delay_t * delay, tick_t duration );

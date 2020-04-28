@@ -4,8 +4,6 @@
 #include "unity.h"
 #include "cmock.h"
 #include "mock_sapi.h"
-#include "mock_teclas.h"
-#include "mock_leds.h"
 
 int GlobalExpectCount;
 int GlobalVerifyOrder;
@@ -14,9 +12,8 @@ char* GlobalOrderError;
 /*=======External Functions This Runner Calls=====*/
 extern void setUp(void);
 extern void tearDown(void);
-extern void test_PruebaDeInicializacion(void);
-extern void test_PruebaDeMaquinaDeEstadoEnEstadoInicial(void);
-extern void test_PruebaDeMaquinaDeEstadoEnEstadoCerrado(void);
+extern void test_PruebaDeLedInicializacion(void);
+extern void test_PruebaLedsEstadoCerrado(void);
 
 
 /*=======Mock Management=====*/
@@ -26,20 +23,14 @@ static void CMock_Init(void)
   GlobalVerifyOrder = 0;
   GlobalOrderError = NULL;
   mock_sapi_Init();
-  mock_teclas_Init();
-  mock_leds_Init();
 }
 static void CMock_Verify(void)
 {
   mock_sapi_Verify();
-  mock_teclas_Verify();
-  mock_leds_Verify();
 }
 static void CMock_Destroy(void)
 {
   mock_sapi_Destroy();
-  mock_teclas_Destroy();
-  mock_leds_Destroy();
 }
 
 /*=======Test Reset Options=====*/
@@ -91,10 +82,9 @@ static void run_test(UnityTestFunction func, const char* name, int line_num)
 /*=======MAIN=====*/
 int main(void)
 {
-  UnityBegin("test_porton.c");
-  run_test(test_PruebaDeInicializacion, "test_PruebaDeInicializacion", 22);
-  run_test(test_PruebaDeMaquinaDeEstadoEnEstadoInicial, "test_PruebaDeMaquinaDeEstadoEnEstadoInicial", 28);
-  run_test(test_PruebaDeMaquinaDeEstadoEnEstadoCerrado, "test_PruebaDeMaquinaDeEstadoEnEstadoCerrado", 38);
+  UnityBegin("test_leds.c");
+  run_test(test_PruebaDeLedInicializacion, "test_PruebaDeLedInicializacion", 19);
+  run_test(test_PruebaLedsEstadoCerrado, "test_PruebaLedsEstadoCerrado", 26);
 
   CMock_Guts_MemFreeFinal();
   return UnityEnd();

@@ -1,11 +1,9 @@
 #include "build/temp/_test_porton.c"
-#include "src/teclas.h"
-#include "src/leds.h"
+#include "build/test/mocks/mock_leds.h"
+#include "build/test/mocks/mock_teclas.h"
 #include "build/test/mocks/mock_sapi.h"
 #include "src/porton.h"
 #include "/var/lib/gems/2.5.0/gems/ceedling-0.29.1/vendor/unity/src/unity.h"
-
-
 
 
 
@@ -40,13 +38,13 @@ void tearDown(void) {
 
 void test_PruebaDeInicializacion(void){
 
- delayWrite_CMockExpect(24, 
+ delayWrite_CMockExpect(23, 
 
 ((void *)0)
 
 , 500);
 
- delayWrite_CMockIgnoreArg_delay(25);
+ delayWrite_CMockIgnoreArg_delay(24);
 
  POR_inicializar_MEF();
 
@@ -54,25 +52,17 @@ void test_PruebaDeInicializacion(void){
 
 
 
-void test_PruebaDeMaquinaDeEstado(void){
+void test_PruebaDeMaquinaDeEstadoEnEstadoInicial(void){
 
- delayWrite_CMockExpect(30, 
+ test_PruebaDeInicializacion();
 
-((void *)0)
+ leds_Estado_cerrado_CMockIgnore();
 
-, 500);
 
- delayWrite_CMockIgnoreArg_delay(31);
 
- POR_inicializar_MEF();
+ ledinicializacion_CMockExpect(32);
 
- gpioWrite_CMockExpectAndReturn(33, LED3, 1, 1);
-
- gpioWrite_CMockExpectAndReturn(34, LED2, 1, 1);
-
- gpioWrite_CMockExpectAndReturn(35, LED1, 1, 1);
-
- delayRead_CMockExpectAndReturn(36, 
+ delayRead_CMockExpectAndReturn(33, 
 
 ((void *)0)
 
@@ -82,7 +72,45 @@ void test_PruebaDeMaquinaDeEstado(void){
 
 );
 
- delayRead_CMockIgnoreArg_delay(37);
+ delayRead_CMockIgnoreArg_delay(34);
+
+ porton_MEF();
+
+}
+
+
+
+void test_PruebaDeMaquinaDeEstadoEnEstadoCerrado(void){
+
+ test_PruebaDeInicializacion();
+
+ leds_Estado_cerrado_CMockIgnore();
+
+
+
+ ledinicializacion_CMockExpect(42);
+
+ delayRead_CMockExpectAndReturn(43, 
+
+((void *)0)
+
+, 
+
+1
+
+);
+
+ delayRead_CMockIgnoreArg_delay(44);
+
+ delayWrite_CMockExpect(45, 
+
+((void *)0)
+
+, 500);
+
+ delayWrite_CMockIgnoreArg_delay(46);
+
+ leds_Estado_cerrado_CMockExpect(47);
 
  porton_MEF();
 

@@ -2,6 +2,6 @@
 - "/var/lib/gems/2.5.0/gems/ceedling-0.29.1/vendor/unity/src/unity.h"
 - src/porton.h
 - build/test/mocks/mock_sapi.h
-- src/leds.h
-- src/teclas.h
+- build/test/mocks/mock_teclas.h
+- build/test/mocks/mock_leds.h
 - build/temp/_test_porton.c
